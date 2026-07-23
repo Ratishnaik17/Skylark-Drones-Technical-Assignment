@@ -456,8 +456,8 @@ tab1, tab2, tab3 = st.tabs(["💬 BI Conversation Agent", "📊 Leadership KPI D
 with tab1:
     st.markdown("### Ask Business Intelligence Questions")
     
-    # Render connection/wake-up options only before the conversation starts
-    if not st.session_state.messages:
+    # Render connection/wake-up options only before the conversation starts AND when the backend is offline
+    if not st.session_state.messages and not top_analytics.get("success"):
         st.info("💡 **API Server Connection Notice:** Your cloud backend on Render sleep-cycles when idle. If the sidebar status shows offline, click the button below to wake it up and synchronize the live Monday.com pipeline data.")
         if st.button("🔄 Connect & Sync Cloud Server", key="wake_up_server_btn", use_container_width=True):
             with st.spinner("Connecting to Render Cloud... Waking up server container (takes 30-45 seconds)..."):
