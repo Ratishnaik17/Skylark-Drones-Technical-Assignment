@@ -22,8 +22,6 @@ The application is deployed across cloud architectures for production testing:
 ### 4. Integration Setup & Connections Status
 ![Setup Status](reference_images/media__1784798972561.png)
 
-### 5. Dynamic Server Wakeup Panel
-![Server Wakeup](reference_images/media__1784802195808.png)
 
 ---
 
