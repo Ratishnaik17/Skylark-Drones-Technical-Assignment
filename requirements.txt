@@ -1,0 +1,46 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+streamlit
+
+# AI / LangChain
+langchain
+langgraph
+langchain-mistralai
+langchain-core
+
+# LLM
+mistralai
+
+# HTTP Requests
+requests
+httpx
+
+# Data Processing
+pandas
+numpy
+
+# Data Validation
+pydantic
+
+# Environment Variables
+python-dotenv
+
+# Date Utilities
+python-dateutil
+
+# Logging
+loguru
+
+# Retry Mechanism
+tenacity
+
+# Optional Caching
+cachetools
+
+# Testing
+pytest
+
+pydantic-settings
+
+loguru
