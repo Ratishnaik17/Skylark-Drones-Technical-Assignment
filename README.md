@@ -10,17 +10,14 @@ The application is deployed across cloud architectures for production testing:
 
 ## 📷 Application Screenshots
 
-### 1. Conversational BI Dashboard Interface
-![Conversational Dashboard](reference_images/chat_interface.png)
+### 1. Executive Performance Dashboard (KPI Cards)
+![Executive Performance Dashboard](reference_images/executive_kpi_dashboard_cards.png)
 
-### 2. Executive Insights Report
-![Executive Insights Report](reference_images/founder_summary_report.png)
+### 2. Sector Revenue & Stage Performance Breakdowns
+![Sector Revenue and Stage Charts](reference_images/sector_revenue_and_stage_charts.png)
 
-### 3. KPI Performance Dashboard Tab
-![KPI Dashboard](reference_images/media__1784798766235.png)
-
-### 4. Integration Setup & Connections Status
-![Setup Status](reference_images/media__1784798972561.png)
+### 3. Work Orders Execution Status & Action Plans
+![Work Orders Execution Status](reference_images/work_orders_execution_status.png)
 
 
 ---
