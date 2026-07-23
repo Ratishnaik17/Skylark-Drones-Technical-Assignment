@@ -10,11 +10,20 @@ The application is deployed across cloud architectures for production testing:
 
 ## 📷 Application Screenshots
 
-### Conversational BI Dashboard Interface
+### 1. Conversational BI Dashboard Interface
 ![Conversational Dashboard](reference_images/chat_interface.png)
 
-### Executive Insights Report
+### 2. Executive Insights Report
 ![Executive Insights Report](reference_images/founder_summary_report.png)
+
+### 3. KPI Performance Dashboard Tab
+![KPI Dashboard](reference_images/media__1784798766235.png)
+
+### 4. Integration Setup & Connections Status
+![Setup Status](reference_images/media__1784798972561.png)
+
+### 5. Dynamic Server Wakeup Panel
+![Server Wakeup](reference_images/media__1784802195808.png)
 
 ---
 
