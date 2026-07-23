@@ -10,13 +10,16 @@ The application is deployed across cloud architectures for production testing:
 
 ## 📷 Application Screenshots
 
-### 1. Executive Performance Dashboard (KPI Cards)
+### 1. Conversational BI Agent (Active Chat Flow)
+![Conversational Chat Flow](reference_images/chat_conversational_example.png)
+
+### 2. Executive Performance Dashboard (KPI Cards)
 ![Executive Performance Dashboard](reference_images/executive_kpi_dashboard_cards.png)
 
-### 2. Sector Revenue & Stage Performance Breakdowns
+### 3. Sector Revenue & Stage Performance Breakdowns
 ![Sector Revenue and Stage Charts](reference_images/sector_revenue_and_stage_charts.png)
 
-### 3. Work Orders Execution Status & Action Plans
+### 4. Work Orders Execution Status & Action Plans
 ![Work Orders Execution Status](reference_images/work_orders_execution_status.png)
 
 
