@@ -456,6 +456,28 @@ tab1, tab2, tab3 = st.tabs(["💬 BI Conversation Agent", "📊 Leadership KPI D
 with tab1:
     st.markdown("### Ask Business Intelligence Questions")
     
+    # Render connection/wake-up options only before the conversation starts
+    if not st.session_state.messages:
+        st.info("💡 **API Server Connection Notice:** Your cloud backend on Render sleep-cycles when idle. If the sidebar status shows offline, click the button below to wake it up and synchronize the live Monday.com pipeline data.")
+        if st.button("🔄 Connect & Sync Cloud Server", key="wake_up_server_btn", use_container_width=True):
+            with st.spinner("Connecting to Render Cloud... Waking up server container (takes 30-45 seconds)..."):
+                try:
+                    # Clear Streamlit cache to force fetch
+                    st.cache_data.clear()
+                    # Ping backend endpoints to wake it up (with a long timeout)
+                    health_check = requests.get(f"{BASE_API_URL}/health", timeout=60)
+                    if health_check.ok:
+                        # Fetch analytics to populate cache
+                        requests.get(f"{BASE_API_URL}/analytics", timeout=60)
+                        st.success("🟢 Connected! Server is awake and live pipeline data has synced successfully.")
+                        st.toast("Cloud server connected!", icon="🟢")
+                        st.rerun()
+                    else:
+                        st.error("🔴 Server responded with an error. Please try again.")
+                except Exception as e:
+                    st.error(f"🔴 Could not establish connection to the server: {str(e)}")
+        st.divider()
+        
     # Render chat history with customized clean avatars
     for msg in st.session_state.messages:
         avatar = "👤" if msg["role"] == "user" else "🤖"
