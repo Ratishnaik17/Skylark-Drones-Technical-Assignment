@@ -8,6 +8,14 @@ The application is deployed across cloud architectures for production testing:
 * **Frontend Dashboard (Streamlit Cloud):** [skylark-drones-technical-assignment-ikbpbtjfutdue3gtp7a7jr.streamlit.app](https://skylark-drones-technical-assignment-ikbpbtjfutdue3gtp7a7jr.streamlit.app/)
 * **Backend API (Render Cloud):** [skylark-drones-technical-assignment.onrender.com](https://skylark-drones-technical-assignment.onrender.com)
 
+## 📷 Application Screenshots
+
+### Conversational BI Dashboard Interface
+![Conversational Dashboard](reference_images/chat_interface.png)
+
+### Executive Insights Report
+![Executive Insights Report](reference_images/founder_summary_report.png)
+
 ---
 
 ##  Features
