@@ -5,8 +5,12 @@ import streamlit as st
 
 from config import settings
 
-# Deployed Cloud API configuration
-BASE_API_URL = "https://skylark-drones-technical-assignment.onrender.com"
+# Base API configuration
+api_host = settings.HOST
+if api_host == "0.0.0.0":
+    api_host = "127.0.0.1"
+
+BASE_API_URL = f"http://{api_host}:{settings.PORT}"
 API_URL = f"{BASE_API_URL}/chat"
 
 
@@ -20,7 +24,7 @@ st.set_page_config(
     layout="wide",
 )
 
-# Premium premium styling system - Outfit font, glassmorphism, card border indicators, and transitions
+# Custom premium styling system - Outfit font, glassmorphism, card border indicators, and transitions
 st.markdown(
     """
     <style>
@@ -28,37 +32,55 @@ st.markdown(
     
     /* Main Background & Fonts */
     .stApp {
-        background-color: #090d16;
+        background-color: #0d111a;
         color: #f1f5f9;
         font-family: 'Outfit', sans-serif;
     }
     
-    /* Custom Header with premium dark blue gradient and glow */
+    /* Custom Slim Header Navbar */
     .header-container {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-        padding: 2rem 2.5rem;
-        border-radius: 16px;
-        margin-bottom: 2rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(56, 189, 248, 0.15);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(12px);
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
     }
     .header-title {
         background: linear-gradient(to right, #38bdf8, #818cf8);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 800;
-        font-size: 2.6rem;
+        font-size: 1.8rem;
         margin: 0;
         letter-spacing: -0.5px;
     }
     .header-subtitle {
-        color: #94a3b8 !important;
-        font-size: 1.1rem;
-        margin-top: 0.5rem;
-        font-weight: 400;
+        color: #64748b !important;
+        font-size: 0.88rem;
+        margin: 0;
+        font-weight: 500;
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+        padding-left: 0.75rem;
+    }
+    .header-badge {
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        color: #38bdf8;
+        font-size: 0.72rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 20px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
     }
     
     /* Premium KPI Widget Cards */
@@ -249,14 +271,17 @@ if "mock_mode" not in st.session_state:
 
 
 # -------------------------------------------------------------
-# Header Layout
+# Header Layout (Sleek Compact Navbar)
 # -------------------------------------------------------------
 
 st.markdown(
     """
     <div class="header-container">
-        <h1 class="header-title">📊 Founder Business Intelligence Agent</h1>
-        <p class="header-subtitle">Real-time Conversational Analytics for Monday.com Pipelines and Projects</p>
+        <div class="header-left">
+            <h1 class="header-title">📊 Founder BI Agent</h1>
+            <p class="header-subtitle">Real-time Monday.com Conversational Intelligence</p>
+        </div>
+        <div class="header-badge">CLOUD DEPLOYED</div>
     </div>
     """,
     unsafe_allow_html=True,
