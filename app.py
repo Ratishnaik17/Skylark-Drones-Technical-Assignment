@@ -5,12 +5,17 @@ import streamlit as st
 
 from config import settings
 
-# Base API configuration
-api_host = settings.HOST
-if api_host == "0.0.0.0":
-    api_host = "127.0.0.1"
+# Resolve API URL dynamically (prefer local server if running, fallback to Render cloud)
+BASE_API_URL = "https://skylark-drones-technical-assignment.onrender.com"
+try:
+    # Quick low-timeout check for local server
+    import requests as req_check
+    local_health = req_check.get("http://127.0.0.1:8000/health", timeout=0.8)
+    if local_health.status_code == 200:
+        BASE_API_URL = "http://127.0.0.1:8000"
+except Exception:
+    pass
 
-BASE_API_URL = f"http://{api_host}:{settings.PORT}"
 API_URL = f"{BASE_API_URL}/chat"
 
 
