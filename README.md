@@ -2,7 +2,7 @@
 
 An AI-powered Business Intelligence (BI) agent built with **FastAPI**, **LangGraph**, and **Streamlit** designed to answer founder-level analytical questions by querying and joining Monday.com Deals and Work Orders board records dynamically.
 
-## 🚀 Deployment & Live Demos
+##  Deployment & Live Demos
 
 The application is deployed across cloud architectures for production testing:
 * **Frontend Dashboard (Streamlit Cloud):** [skylark-drones-technical-assignment-ikbpbtjfutdue3gtp7a7jr.streamlit.app](https://skylark-drones-technical-assignment-ikbpbtjfutdue3gtp7a7jr.streamlit.app/)
@@ -10,7 +10,7 @@ The application is deployed across cloud architectures for production testing:
 
 ---
 
-## 📌 Features
+##  Features
 
 * **Conversational Interface:** Multi-turn conversation capability using LangGraph's native `MemorySaver` checkpointer.
 * **Resilient Key Extraction:** Custom fuzzy case-insensitive substring lookup algorithm to robustly handle inconsistent column names in imported boards.
@@ -21,14 +21,14 @@ The application is deployed across cloud architectures for production testing:
 
 ---
 
-## 🧠 Detailed Agent Subsystems
+##  Detailed Agent Subsystems
 
 The BI Assistant uses specialized agent subsystems coordinated within a LangGraph workflow:
 
-1. **Query Parser Agent ([tools/parser.py](file:///c:/Users/naikr/OneDrive/Desktop/ASSIGNMENT_skylark/tools/parser.py)):** Parses the user's raw query to extract key intent attributes (deal stages, timeframes, or sectors) deterministically. It handles ambiguity by defaulting parameters to sensible stand-ins rather than blocking.
-2. **Monday Data Sync Agent ([tools/monday.py](file:///c:/Users/naikr/OneDrive/Desktop/ASSIGNMENT_skylark/tools/monday.py) & [services/normalize.py](file:///c:/Users/naikr/OneDrive/Desktop/ASSIGNMENT_skylark/services/normalize.py)):** Interacts with Monday.com GraphQL API. It features case-insensitive fuzzy key resolution to match messy board column headers (e.g. matching `"Masked Deal value"` to `"Masked Deal Value"`).
-3. **Financial Analytics Agent ([tools/analytics.py](file:///c:/Users/naikr/OneDrive/Desktop/ASSIGNMENT_skylark/tools/analytics.py)):** Computes pipeline totals, averages, delays, and outstanding receivables. It maps qualitative CRM indicators (`"High"`, `"Medium"`, `"Low"`) to numeric probabilities (`80%`, `50%`, `20%`) to guarantee accurate expected revenue totals.
-4. **Insight Generator Agent ([llm/client.py](file:///c:/Users/naikr/OneDrive/Desktop/ASSIGNMENT_skylark/llm/client.py)):** Takes the computed mathematical summaries, blends them with conversational history retrieved by the checkpointer, and drafts high-level founder bullet points highlighting business opportunities and cash flow risks.
+1. **Query Parser Agent (`tools/parser.py`):** Parses the user's raw query to extract key intent attributes (deal stages, timeframes, or sectors) deterministically. It handles ambiguity by defaulting parameters to sensible stand-ins rather than blocking.
+2. **Monday Data Sync Agent (`tools/monday.py` & `services/normalize.py`):** Interacts with Monday.com GraphQL API. It features case-insensitive fuzzy key resolution to match messy board column headers (e.g. matching `"Masked Deal value"` to `"Masked Deal Value"`).
+3. **Financial Analytics Agent (`tools/analytics.py`):** Computes pipeline totals, averages, delays, and outstanding receivables. It maps qualitative CRM indicators (`"High"`, `"Medium"`, `"Low"`) to numeric probabilities (`80%`, `50%`, `20%`) to guarantee accurate expected revenue totals.
+4. **Insight Generator Agent (`llm/client.py`):** Takes the computed mathematical summaries, blends them with conversational history retrieved by the checkpointer, and drafts high-level founder bullet points highlighting business opportunities and cash flow risks.
 
 ---
 
@@ -144,23 +144,6 @@ To load the sample data into Monday.com:
 
 ---
 
-## 🚀 Running the Application
-
-### 1. Start the API backend
-Run the FastAPI backend on port `8000`:
-```bash
-python api.py
-```
-Check health at `http://127.0.0.1:8000/health`.
-
-### 2. Start the Streamlit frontend
-In a separate terminal (with virtualenv activated), launch Streamlit:
-```bash
-streamlit run app.py
-```
-Access the dashboard in your browser at `http://localhost:8501`.
-
----
 
 ## 🧪 Testing
 
