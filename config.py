@@ -20,11 +20,11 @@ class Settings(BaseSettings):
     # ==========================
     # Monday.com Configuration
     # ==========================
-    MONDAY_API_TOKEN: str
+    MONDAY_API_TOKEN: str | None = Field(default=None)
     MONDAY_API_URL: str = "https://api.monday.com/v2"
 
-    DEALS_BOARD_ID: int
-    WORK_ORDERS_BOARD_ID: int
+    DEALS_BOARD_ID: int | None = Field(default=None)
+    WORK_ORDERS_BOARD_ID: int | None = Field(default=None)
 
     # ==========================
     # FastAPI

@@ -648,8 +648,13 @@ with tab3:
     
     with col1:
         st.subheader("Monday.com Boards")
-        st.markdown(f"**Deals Board ID:** `{settings.DEALS_BOARD_ID}`")
-        st.markdown(f"**Work Orders Board ID:** `{settings.WORK_ORDERS_BOARD_ID}`")
+        
+        # Get actual board IDs from backend if connected, otherwise fallback to local settings
+        deals_id = server_health.get("deals_board_id") if (server_health and server_health.get("deals_board_id")) else settings.DEALS_BOARD_ID
+        work_id = server_health.get("work_orders_board_id") if (server_health and server_health.get("work_orders_board_id")) else settings.WORK_ORDERS_BOARD_ID
+        
+        st.markdown(f"**Deals Board ID:** `{deals_id}`")
+        st.markdown(f"**Work Orders Board ID:** `{work_id}`")
         st.markdown(f"**Monday API URL:** `{settings.MONDAY_API_URL}`")
         st.markdown(f"**Host / Port:** `{settings.HOST}:{settings.PORT}`")
         
