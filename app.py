@@ -5,12 +5,8 @@ import streamlit as st
 
 from config import settings
 
-# Base API configuration
-api_host = settings.HOST
-if api_host == "0.0.0.0":
-    api_host = "127.0.0.1"
-
-BASE_API_URL = f"http://{api_host}:{settings.PORT}"
+# Deployed Cloud API configuration
+BASE_API_URL = "https://skylark-drones-technical-assignment.onrender.com"
 API_URL = f"{BASE_API_URL}/chat"
 
 
